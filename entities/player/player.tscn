@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://gllpfoqme3hp"]
+
+[ext_resource type="Script" uid="uid://dvabcb2hal76v" path="res://entities/player/player.gd" id="1_abrql"]
+[ext_resource type="Texture2D" uid="uid://dnq1tp15que3h" path="res://icon.svg" id="1_symyc"]
+[ext_resource type="Script" uid="uid://0nhk077mqjsm" path="res://components/input/input_component.gd" id="3_bls4j"]
+[ext_resource type="Script" uid="uid://crasqptml1f2i" path="res://components/movement/movement_component.gd" id="4_fkugw"]
+[ext_resource type="Script" uid="uid://c4mvu3kykpwke" path="res://components/health/health_component.gd" id="5_fkugw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
+size = Vector2(37, 36)
+
+[node name="player" type="CharacterBody2D" unique_id=1649820013]
+script = ExtResource("1_abrql")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=745006038]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_symyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1323248705]
+shape = SubResource("RectangleShape2D_abrql")
+
+[node name="InputComponent" type="Node" parent="." unique_id=171831946]
+unique_name_in_owner = true
+script = ExtResource("3_bls4j")
+metadata/_custom_type_script = "uid://0nhk077mqjsm"
+
+[node name="MovemenetComponent" type="Node" parent="." unique_id=1575598783 node_paths=PackedStringArray("body", "model")]
+unique_name_in_owner = true
+script = ExtResource("4_fkugw")
+body = NodePath("..")
+model = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://crasqptml1f2i"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1571956715]
+unique_name_in_owner = true
+script = ExtResource("5_fkugw")
+metadata/_custom_type_script = "uid://c4mvu3kykpwke"
