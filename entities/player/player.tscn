@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://0nhk077mqjsm" path="res://components/input/input_component.gd" id="3_bls4j"]
 [ext_resource type="Script" uid="uid://crasqptml1f2i" path="res://components/movement/movement_component.gd" id="4_fkugw"]
 [ext_resource type="Script" uid="uid://c4mvu3kykpwke" path="res://components/health/health_component.gd" id="5_fkugw"]
+[ext_resource type="Script" uid="uid://upvnaal1jy2" path="res://components/combat/attack_component.gd" id="6_26q78"]
+[ext_resource type="Script" uid="uid://btwws7tw4dr10" path="res://projectiles/bullet_spawners/linear_spawner.gd" id="7_bectd"]
+[ext_resource type="PackedScene" uid="uid://be7uv31hhovm5" path="res://projectiles/player_bullets/player_bullet.tscn" id="8_wvtmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
 size = Vector2(37, 36)
@@ -35,3 +38,16 @@ metadata/_custom_type_script = "uid://crasqptml1f2i"
 unique_name_in_owner = true
 script = ExtResource("5_fkugw")
 metadata/_custom_type_script = "uid://c4mvu3kykpwke"
+
+[node name="AttackComponent" type="Node2D" parent="." unique_id=1048447876 node_paths=PackedStringArray("spawner")]
+unique_name_in_owner = true
+script = ExtResource("6_26q78")
+spawner = NodePath("LinearSpawner")
+metadata/_custom_type_script = "uid://upvnaal1jy2"
+
+[node name="LinearSpawner" type="Node2D" parent="AttackComponent" unique_id=1288732122]
+unique_name_in_owner = true
+script = ExtResource("7_bectd")
+bullet_scene = ExtResource("8_wvtmh")
+cannons = 4
+metadata/_custom_type_script = "uid://btwws7tw4dr10"
