@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c4v1hvrtkkss4"]
+
+[ext_resource type="Texture2D" uid="uid://dnq1tp15que3h" path="res://icon.svg" id="1_elosy"]
+[ext_resource type="Script" uid="uid://v5dd7oyhk7to" path="res://projectiles/enemy_bullets/enemy_bullet.gd" id="1_qrhb5"]
+[ext_resource type="Script" uid="uid://co55lvqtr0x6v" path="res://components/combat/hitbox_component.gd" id="2_qrhb5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kmgq3"]
+radius = 3.0
+
+[node name="EnemyBullet" type="Node2D" unique_id=1007111983]
+script = ExtResource("1_qrhb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=645237102]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_elosy")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=970309430]
+unique_name_in_owner = true
+script = ExtResource("2_qrhb5")
+metadata/_custom_type_script = "uid://co55lvqtr0x6v"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1899928571]
+shape = SubResource("CircleShape2D_kmgq3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1992422960]
+position = Vector2(7, 7)
+rect = Rect2(-10, -10, 6, 6)
