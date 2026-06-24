@@ -12,8 +12,10 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
 		inflict_damage(area.damage)
-		#TODO queue bullet. laser?
 		
+		var bullet = area.get_parent()
+		if bullet and bullet is EnemyBullet:
+			bullet.queue_free()
 
 func inflict_damage(amounth: int) -> void:
 	if health_component:

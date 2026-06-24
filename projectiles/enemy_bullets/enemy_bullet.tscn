@@ -5,23 +5,25 @@
 [ext_resource type="Script" uid="uid://co55lvqtr0x6v" path="res://components/combat/hitbox_component.gd" id="2_qrhb5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmgq3"]
-radius = 3.0
+radius = 12.0
 
 [node name="EnemyBullet" type="Node2D" unique_id=1007111983]
 script = ExtResource("1_qrhb5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=645237102]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_elosy")
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=970309430]
 unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("2_qrhb5")
 metadata/_custom_type_script = "uid://co55lvqtr0x6v"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1899928571]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1899928571 groups=["bullets"]]
 shape = SubResource("CircleShape2D_kmgq3")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1992422960]
 position = Vector2(7, 7)
-rect = Rect2(-10, -10, 6, 6)
+rect = Rect2(-19, -19, 24, 24)

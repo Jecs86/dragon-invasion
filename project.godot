@@ -25,6 +25,12 @@ window/size/viewport_height=600
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[global_group]
+
+enemies=""
+player=""
+bullets=""
+
 [input]
 
 move_up={
@@ -59,6 +65,10 @@ attack={
 2d_render/layer_2="enemy"
 2d_render/layer_3="player_bullet"
 2d_render/layer_4="enemy_bullet"
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="player_bullet"
+2d_physics/layer_4="enemy_bullet"
 
 [physics]
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b0pmr8hhk8tlv"]
+
+[ext_resource type="PackedScene" uid="uid://ba2mnr8jfmw1j" path="res://entities/enemies/normal/base_enemy.tscn" id="1_a8q2q"]
+[ext_resource type="Script" uid="uid://btwws7tw4dr10" path="res://projectiles/bullet_spawners/linear_spawner.gd" id="2_dvnik"]
+[ext_resource type="PackedScene" uid="uid://c4v1hvrtkkss4" path="res://projectiles/enemy_bullets/enemy_bullet.tscn" id="3_rpu1f"]
+
+[node name="FireEnemy" unique_id=2009318971 instance=ExtResource("1_a8q2q")]
+
+[node name="MovementComponent" parent="." index="3" unique_id=1293024255]
+speed = 100
+
+[node name="AttackComponent" parent="." index="6" unique_id=1491760817 node_paths=PackedStringArray("spawner")]
+spawner = NodePath("LinearSpawner")
+
+[node name="LinearSpawner" type="Node2D" parent="AttackComponent" index="0" unique_id=994738633]
+script = ExtResource("2_dvnik")
+bullet_scene = ExtResource("3_rpu1f")
+cadence = 0.5
+shooting_direction = "Left"
+metadata/_custom_type_script = "uid://btwws7tw4dr10"

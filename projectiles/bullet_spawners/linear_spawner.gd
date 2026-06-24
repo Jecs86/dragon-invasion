@@ -4,6 +4,7 @@ class_name LinearSpawner extends Node2D
 @export var cannons: int = 1
 @export var opening_angle: float = 15.0
 @export var cadence: float = 0.1
+@export_enum("Right", "Left") var shooting_direction: String = "Right"
 
 var fire_timer: Timer
 
@@ -33,7 +34,13 @@ func _projectile_instantiate(deviation_angle: float) -> void:
 	var new_bullet = bullet_scene.instantiate()
 	new_bullet.global_position = global_position
 	
-	var rotated_direction = Vector2.RIGHT.rotated(deg_to_rad(deviation_angle))
+	var rotated_direction: Vector2
+	
+	if shooting_direction == "Right":
+		rotated_direction = Vector2.RIGHT.rotated(deg_to_rad(deviation_angle))
+	elif shooting_direction == "Left":
+		rotated_direction = Vector2.LEFT.rotated(deg_to_rad(deviation_angle))
+	
 	new_bullet.direction = rotated_direction
 	new_bullet.rotation = rotated_direction.angle()
 	

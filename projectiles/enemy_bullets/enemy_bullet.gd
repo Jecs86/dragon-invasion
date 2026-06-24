@@ -1,4 +1,4 @@
-extends Node2D
+class_name EnemyBullet extends Node2D
 
 @export var velocity: float = 600.0
 var direction: Vector2 = Vector2.ZERO
