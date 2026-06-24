@@ -8,9 +8,12 @@
 [ext_resource type="Script" uid="uid://upvnaal1jy2" path="res://components/combat/attack_component.gd" id="6_26q78"]
 [ext_resource type="Script" uid="uid://btwws7tw4dr10" path="res://projectiles/bullet_spawners/linear_spawner.gd" id="7_bectd"]
 [ext_resource type="PackedScene" uid="uid://be7uv31hhovm5" path="res://projectiles/player_bullets/player_bullet.tscn" id="8_wvtmh"]
+[ext_resource type="Script" uid="uid://buqwg1q7nc1k8" path="res://components/combat/hurtbox_component.gd" id="9_bectd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
 size = Vector2(37, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvtmh"]
 
 [node name="player" type="CharacterBody2D" unique_id=1649820013]
 script = ExtResource("1_abrql")
@@ -50,4 +53,17 @@ unique_name_in_owner = true
 script = ExtResource("7_bectd")
 bullet_scene = ExtResource("8_wvtmh")
 cannons = 4
+cadence = 0.2
 metadata/_custom_type_script = "uid://btwws7tw4dr10"
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1199803644 node_paths=PackedStringArray("health_component")]
+unique_name_in_owner = true
+collision_mask = 9
+script = ExtResource("9_bectd")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://buqwg1q7nc1k8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1237396987]
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_wvtmh")
+debug_color = Color(0, 0.6338598, 0.43927822, 0.41960785)

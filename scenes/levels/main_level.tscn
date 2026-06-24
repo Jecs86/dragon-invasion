@@ -1,8 +1,26 @@
 [gd_scene format=3 uid="uid://dfc80ka5gk08"]
 
 [ext_resource type="PackedScene" uid="uid://gllpfoqme3hp" path="res://entities/player/player.tscn" id="1_lx3qq"]
+[ext_resource type="PackedScene" uid="uid://b0pmr8hhk8tlv" path="res://entities/enemies/normal/fire_enemy.tscn" id="2_ojqrr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lx3qq"]
+b = Vector2(800, 0)
 
 [node name="MainLevel" type="Node2D" unique_id=1118802693]
 
 [node name="player" parent="." unique_id=1649820013 instance=ExtResource("1_lx3qq")]
-position = Vector2(507, 272)
+position = Vector2(137, 342)
+
+[node name="celling" type="StaticBody2D" parent="." unique_id=1710316760]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="celling" unique_id=613838919]
+shape = SubResource("SegmentShape2D_lx3qq")
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=347045330]
+position = Vector2(0, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=718546712]
+shape = SubResource("SegmentShape2D_lx3qq")
+
+[node name="FireEnemy" parent="." unique_id=2009318971 instance=ExtResource("2_ojqrr")]
+position = Vector2(842, 202)
