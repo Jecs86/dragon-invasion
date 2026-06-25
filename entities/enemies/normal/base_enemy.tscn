@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cjvufc1bgesij" path="res://entities/enemies/normal/base_enemy.gd" id="1_qofbl"]
 [ext_resource type="Texture2D" uid="uid://dnq1tp15que3h" path="res://icon.svg" id="2_qjq2o"]
 [ext_resource type="Script" uid="uid://c4mvu3kykpwke" path="res://components/health/health_component.gd" id="3_e7nmk"]
-[ext_resource type="Script" uid="uid://crasqptml1f2i" path="res://components/movement/movement_component.gd" id="4_cxtk8"]
+[ext_resource type="Script" uid="uid://cs2mcj3sqwqdx" path="res://components/movement/enemy_behavior_component.gd" id="4_e7nmk"]
 [ext_resource type="Script" uid="uid://buqwg1q7nc1k8" path="res://components/combat/hurtbox_component.gd" id="5_mypg8"]
 [ext_resource type="Script" uid="uid://upvnaal1jy2" path="res://components/combat/attack_component.gd" id="6_qjq2o"]
 [ext_resource type="Script" uid="uid://co55lvqtr0x6v" path="res://components/combat/hitbox_component.gd" id="7_e7nmk"]
@@ -35,12 +35,11 @@ script = ExtResource("3_e7nmk")
 max_health = 10
 metadata/_custom_type_script = "uid://c4mvu3kykpwke"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=1293024255 node_paths=PackedStringArray("body", "model")]
+[node name="EnemyBehaviorComponent" type="Node" parent="." unique_id=691684047 node_paths=PackedStringArray("body")]
 unique_name_in_owner = true
-script = ExtResource("4_cxtk8")
+script = ExtResource("4_e7nmk")
 body = NodePath("..")
-model = NodePath("../Sprite2D")
-metadata/_custom_type_script = "uid://crasqptml1f2i"
+metadata/_custom_type_script = "uid://cs2mcj3sqwqdx"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=1738017358 node_paths=PackedStringArray("health_component")]
 unique_name_in_owner = true
@@ -64,6 +63,8 @@ metadata/_custom_type_script = "uid://upvnaal1jy2"
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=1602459991]
 unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("7_e7nmk")
 metadata/_custom_type_script = "uid://co55lvqtr0x6v"
 

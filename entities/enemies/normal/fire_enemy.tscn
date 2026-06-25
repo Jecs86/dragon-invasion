@@ -6,8 +6,9 @@
 
 [node name="FireEnemy" unique_id=2009318971 instance=ExtResource("1_a8q2q")]
 
-[node name="MovementComponent" parent="." index="3" unique_id=1293024255]
-speed = 100
+[node name="EnemyBehaviorComponent" parent="." index="3" unique_id=691684047]
+pattern_selected = 2
+sides = 5
 
 [node name="AttackComponent" parent="." index="6" unique_id=1491760817 node_paths=PackedStringArray("spawner")]
 spawner = NodePath("LinearSpawner")
@@ -15,6 +16,6 @@ spawner = NodePath("LinearSpawner")
 [node name="LinearSpawner" type="Node2D" parent="AttackComponent" index="0" unique_id=994738633]
 script = ExtResource("2_dvnik")
 bullet_scene = ExtResource("3_rpu1f")
-cadence = 0.5
+cadence = 0.8
 shooting_direction = "Left"
 metadata/_custom_type_script = "uid://btwws7tw4dr10"

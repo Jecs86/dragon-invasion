@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bfl20glfmaqrk"]
+
+[ext_resource type="Script" uid="uid://cs2mcj3sqwqdx" path="res://components/movement/enemy_behavior_component.gd" id="1_8wl65"]
+[ext_resource type="Script" uid="uid://c2qgirelifxgd" path="res://entities/enemies/normal/squadron/squadron.gd" id="1_krw1b"]
+[ext_resource type="PackedScene" uid="uid://b0pmr8hhk8tlv" path="res://entities/enemies/normal/fire_enemy.tscn" id="2_l41u7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l41u7"]
+
+[node name="PolygonSquadron" type="CharacterBody2D" unique_id=316544360]
+script = ExtResource("1_krw1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=100125516]
+shape = SubResource("CircleShape2D_l41u7")
+disabled = true
+
+[node name="EnemyBehaviorComponent" type="Node" parent="." unique_id=981388912 node_paths=PackedStringArray("body")]
+unique_name_in_owner = true
+script = ExtResource("1_8wl65")
+pattern_selected = 1
+body = NodePath("..")
+sides = 4
+metadata/_custom_type_script = "uid://cs2mcj3sqwqdx"
+
+[node name="FireEnemy" parent="." unique_id=2009318971 instance=ExtResource("2_l41u7")]
+position = Vector2(0, -80)
+
+[node name="FireEnemy2" parent="." unique_id=226305777 instance=ExtResource("2_l41u7")]
+position = Vector2(-100, -2)
+
+[node name="FireEnemy3" parent="." unique_id=2038263672 instance=ExtResource("2_l41u7")]
+position = Vector2(-50, 100)
+
+[node name="FireEnemy4" parent="." unique_id=90835452 instance=ExtResource("2_l41u7")]
+position = Vector2(50, 100)
+
+[node name="FireEnemy5" parent="." unique_id=425736372 instance=ExtResource("2_l41u7")]
+position = Vector2(100, -2)
