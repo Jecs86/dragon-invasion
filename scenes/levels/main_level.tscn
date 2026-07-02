@@ -2,10 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://gllpfoqme3hp" path="res://entities/player/player.tscn" id="1_lx3qq"]
 [ext_resource type="Script" uid="uid://btvr14mhjpayq" path="res://entities/enemies/normal/trails/trail_spawner.gd" id="2_fke1l"]
+[ext_resource type="PackedScene" uid="uid://bfl20glfmaqrk" path="res://entities/enemies/normal/squadron/polygon_squadron.tscn" id="2_ojqrr"]
 [ext_resource type="PackedScene" uid="uid://b0pmr8hhk8tlv" path="res://entities/enemies/normal/fire_enemy.tscn" id="3_hn3as"]
+[ext_resource type="Script" uid="uid://dovhum8rgnn7d" path="res://components/movement/movement_patterns/wave_pattern.gd" id="4_hn3as"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lx3qq"]
 b = Vector2(800, 0)
+
+[sub_resource type="Resource" id="Resource_geiq8"]
+script = ExtResource("4_hn3as")
+metadata/_custom_type_script = "uid://dovhum8rgnn7d"
 
 [node name="MainLevel" type="Node2D" unique_id=1118802693]
 
@@ -23,10 +29,12 @@ position = Vector2(0, 600)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=718546712]
 shape = SubResource("SegmentShape2D_lx3qq")
 
-[node name="TrailSpawner" type="Node2D" parent="." unique_id=1197769210]
-unique_name_in_owner = true
-position = Vector2(953, 295)
+[node name="TrailSpawner" type="Node2D" parent="." unique_id=478717716]
+position = Vector2(1060, 468)
 script = ExtResource("2_fke1l")
 enemy_scene = ExtResource("3_hn3as")
-pixel_distance = 70.0
+trail_pattern = SubResource("Resource_geiq8")
 metadata/_custom_type_script = "uid://btvr14mhjpayq"
+
+[node name="PolygonSquadron" parent="." unique_id=316544360 instance=ExtResource("2_ojqrr")]
+position = Vector2(1059, 157)

@@ -2,13 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://ba2mnr8jfmw1j" path="res://entities/enemies/normal/base_enemy.tscn" id="1_a8q2q"]
 [ext_resource type="Script" uid="uid://btwws7tw4dr10" path="res://projectiles/bullet_spawners/linear_spawner.gd" id="2_dvnik"]
+[ext_resource type="Script" uid="uid://dovhum8rgnn7d" path="res://components/movement/movement_patterns/wave_pattern.gd" id="2_rpu1f"]
 [ext_resource type="PackedScene" uid="uid://c4v1hvrtkkss4" path="res://projectiles/enemy_bullets/enemy_bullet.tscn" id="3_rpu1f"]
+
+[sub_resource type="Resource" id="Resource_kjnpw"]
+script = ExtResource("2_rpu1f")
+metadata/_custom_type_script = "uid://dovhum8rgnn7d"
 
 [node name="FireEnemy" unique_id=2009318971 instance=ExtResource("1_a8q2q")]
 
 [node name="EnemyBehaviorComponent" parent="." index="3" unique_id=691684047]
-pattern_selected = 2
-sides = 5
+pattern_selected = SubResource("Resource_kjnpw")
 
 [node name="AttackComponent" parent="." index="6" unique_id=1491760817 node_paths=PackedStringArray("spawner")]
 spawner = NodePath("LinearSpawner")

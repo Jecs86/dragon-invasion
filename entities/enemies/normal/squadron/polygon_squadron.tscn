@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://cs2mcj3sqwqdx" path="res://components/movement/enemy_behavior_component.gd" id="1_8wl65"]
 [ext_resource type="Script" uid="uid://c2qgirelifxgd" path="res://entities/enemies/normal/squadron/squadron.gd" id="1_krw1b"]
 [ext_resource type="PackedScene" uid="uid://b0pmr8hhk8tlv" path="res://entities/enemies/normal/fire_enemy.tscn" id="2_l41u7"]
+[ext_resource type="Script" uid="uid://06m2s1r5tw1f" path="res://components/movement/movement_patterns/polygon_pattern.gd" id="3_cqqrb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l41u7"]
+
+[sub_resource type="Resource" id="Resource_j8e31"]
+script = ExtResource("3_cqqrb")
+sides = 8
+metadata/_custom_type_script = "uid://06m2s1r5tw1f"
 
 [node name="PolygonSquadron" type="CharacterBody2D" unique_id=316544360]
 script = ExtResource("1_krw1b")
@@ -16,9 +22,8 @@ disabled = true
 [node name="EnemyBehaviorComponent" type="Node" parent="." unique_id=981388912 node_paths=PackedStringArray("body")]
 unique_name_in_owner = true
 script = ExtResource("1_8wl65")
-pattern_selected = 1
+pattern_selected = SubResource("Resource_j8e31")
 body = NodePath("..")
-sides = 4
 metadata/_custom_type_script = "uid://cs2mcj3sqwqdx"
 
 [node name="FireEnemy" parent="." unique_id=2009318971 instance=ExtResource("2_l41u7")]
