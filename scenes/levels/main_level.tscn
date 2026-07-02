@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dfc80ka5gk08"]
 
 [ext_resource type="PackedScene" uid="uid://gllpfoqme3hp" path="res://entities/player/player.tscn" id="1_lx3qq"]
-[ext_resource type="PackedScene" uid="uid://b0pmr8hhk8tlv" path="res://entities/enemies/normal/fire_enemy.tscn" id="2_ojqrr"]
+[ext_resource type="Script" uid="uid://btvr14mhjpayq" path="res://entities/enemies/normal/trails/trail_spawner.gd" id="2_fke1l"]
+[ext_resource type="PackedScene" uid="uid://b0pmr8hhk8tlv" path="res://entities/enemies/normal/fire_enemy.tscn" id="3_hn3as"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lx3qq"]
 b = Vector2(800, 0)
@@ -22,5 +23,10 @@ position = Vector2(0, 600)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=718546712]
 shape = SubResource("SegmentShape2D_lx3qq")
 
-[node name="FireEnemy" parent="." unique_id=2009318971 instance=ExtResource("2_ojqrr")]
-position = Vector2(842, 202)
+[node name="TrailSpawner" type="Node2D" parent="." unique_id=1197769210]
+unique_name_in_owner = true
+position = Vector2(953, 295)
+script = ExtResource("2_fke1l")
+enemy_scene = ExtResource("3_hn3as")
+pixel_distance = 70.0
+metadata/_custom_type_script = "uid://btvr14mhjpayq"

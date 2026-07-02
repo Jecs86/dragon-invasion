@@ -22,16 +22,19 @@ sides = 4
 metadata/_custom_type_script = "uid://cs2mcj3sqwqdx"
 
 [node name="FireEnemy" parent="." unique_id=2009318971 instance=ExtResource("2_l41u7")]
-position = Vector2(0, -80)
+position = Vector2(-30, -50)
 
 [node name="FireEnemy2" parent="." unique_id=226305777 instance=ExtResource("2_l41u7")]
-position = Vector2(-100, -2)
+position = Vector2(-30, 20)
 
 [node name="FireEnemy3" parent="." unique_id=2038263672 instance=ExtResource("2_l41u7")]
-position = Vector2(-50, 100)
+position = Vector2(-30, 90)
 
 [node name="FireEnemy4" parent="." unique_id=90835452 instance=ExtResource("2_l41u7")]
-position = Vector2(50, 100)
+position = Vector2(30, 90)
 
 [node name="FireEnemy5" parent="." unique_id=425736372 instance=ExtResource("2_l41u7")]
-position = Vector2(100, -2)
+position = Vector2(30, 20)
+
+[node name="FireEnemy6" parent="." unique_id=582749815 instance=ExtResource("2_l41u7")]
+position = Vector2(30, -50)

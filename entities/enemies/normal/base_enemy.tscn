@@ -18,7 +18,7 @@ size = Vector2(48, 48)
 radius = 24.020824
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=2009318971 groups=["enemies"]]
-collision_layer = 10
+collision_layer = 0
 collision_mask = 10
 script = ExtResource("1_qofbl")
 
@@ -58,6 +58,7 @@ rect = Rect2(-24, -24, 48, 48)
 
 [node name="AttackComponent" type="Node2D" parent="." unique_id=1491760817]
 unique_name_in_owner = true
+position = Vector2(-25, 10)
 script = ExtResource("6_qjq2o")
 metadata/_custom_type_script = "uid://upvnaal1jy2"
 

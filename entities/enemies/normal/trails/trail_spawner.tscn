@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bwaefktra2w2d"]
+
+[ext_resource type="Script" uid="uid://btvr14mhjpayq" path="res://entities/enemies/normal/trails/trail_spawner.gd" id="1_hmi0b"]
+
+[node name="TrailSpawner" type="Node2D" unique_id=1622849047]
+script = ExtResource("1_hmi0b")

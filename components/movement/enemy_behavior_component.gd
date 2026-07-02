@@ -36,10 +36,11 @@ var pattern_center: Vector2 = Vector2.ZERO
 var accumulated_time: float = 0.0
 var pattern_chronometer: float = 0.0
 var x_stop_position: float = 0.0
+var shared_route := false
 
 func _ready() -> void:
 	if body:
-		x_stop_position = randf_range(500.0, 700.0)
+		x_stop_position = randf_range(500.0, 600.0)
 		
 func tick(delta: float) -> void:
 	if not body:
@@ -60,10 +61,11 @@ func _entry_logic() -> void:
 	
 	if body.global_position.x <= x_stop_position:
 		current_state = States.PATTERN
-		pattern_center = body.global_position
 		
-		if pattern_selected == PatternType.POLYGON:
-			_calculate_polygon_vertices()
+		if not shared_route:
+			pattern_center = body.global_position
+			if pattern_selected == PatternType.POLYGON:
+				_calculate_polygon_vertices()
 		
 
 func _pattern_logic(delta: float) -> void:
@@ -122,3 +124,12 @@ func _circle_movement(delta: float) -> void:
 	
 	var direction: Vector2 = body.global_position.direction_to(target_position)
 	body.velocity = direction * movement_velocity
+
+func follower_config(master_center: Vector2, master_vertices: Array[Vector2], master_pattern: PatternType, master_stop_point: float) -> void:
+	pattern_center = master_center
+	vertices = master_vertices.duplicate()
+	pattern_selected = master_pattern
+	x_stop_position = master_stop_point
+	shared_route = true
+	
+	
